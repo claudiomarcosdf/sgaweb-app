@@ -1,0 +1,28 @@
+.box-rel {
+	padding-top: 30px;
+}
+
+.checks {
+	margin-left: 2px;
+	margin-bottom: 10px;
+}
+
+.destak {
+	color: #2355dc;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.adjust-radios {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.subtitle {
+	margin-bottom: 20px;
+}
+
+.box-table {
+	padding-top: 20px;
+}

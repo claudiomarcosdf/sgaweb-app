@@ -1,0 +1,37 @@
+.space-botton {
+	margin-top: 10px;
+}
+
+.badge {
+	padding: 7px 4px 7px 3px;
+	margin-left: 5px;
+}
+
+.sumary {
+	margin-top: 20px;
+	margin-bottom: 4px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.checks {
+	margin-left: 2px;
+	margin-bottom: 10px;
+}
+
+.spaces {
+	margin-right: 10px;
+}
+
+.destak {
+	color: #2355dc;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.sumary-destak {
+	font-family: Roboto, sans-serif;
+	font-size: medium;
+	color: #f85e00;
+}

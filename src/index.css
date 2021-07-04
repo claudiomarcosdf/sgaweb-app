@@ -1,0 +1,99 @@
+/*
+    Note: This app is not heavily dependent to the css that's only maintain a single css file.
+*/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	background: #d3d3d3;
+	min-height: 100vh;
+}
+.w3-bar {
+	margin-bottom: 20px;
+}
+
+/* LandingPage Component styles */
+.bgimg {
+	/* background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg'); */
+	background-image: url('assets/images/background3.png');
+	min-height: 100vh;
+	background-position: center;
+	background-size: cover;
+}
+
+/* CenterToScreen Component styles */
+.center-to-screen {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	border-bottom-width: thin;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+hr {
+	margin-top: 0;
+	margin-bottom: 2.3rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+label {
+	color: rgb(56, 154, 211);
+}
+
+.group-button {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-top: 20px;
+}
+
+.button-full-size {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.button-full-size button {
+	width: 100%;
+}
+
+.image-perfil {
+	width: 60px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.email {
+	color: royalblue;
+}
+
+.font-perfil {
+	font-size: 0.8rem;
+	color: salmon;
+}
+
+.page-notfound {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.success-msg-simple {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+}
+
+.success-msg-simple i {
+	color: rgb(84, 170, 84);
+}

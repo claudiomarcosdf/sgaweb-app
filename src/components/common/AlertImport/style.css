@@ -1,0 +1,18 @@
+.box {
+	display: block;
+	margin-top: 10px;
+	border-radius: 3px;
+	padding-top: 20px;
+}
+
+.alert {
+	width: 100%;
+}
+
+.heading {
+	font-size: 1.2rem;
+}
+
+.bodyAlert {
+	font-size: 0.8rem;
+}

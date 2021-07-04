@@ -1,0 +1,15 @@
+export { default as LandingPage } from './LandingPage';
+// export { default as Login } from './Login';
+export { default as Login } from './Login';
+export { default as Register } from './Register';
+export { default as ForgotPassword } from './ForgotPassword';
+export { default as ResetPassword } from './ResetPassword';
+export { default as Associado } from './Associado';
+export { default as Importacao } from './Importacao';
+export { default as Arrecadacao } from './Arrecadacao';
+export { default as Relatorios } from './Relatorios/Relatorios';
+export { default as RelatorioAssociado } from './Relatorios/RelatorioAssociado';
+export { default as RelatorioArrecadacao } from './Relatorios/RelatorioArrecadacao';
+export { default as RelatorioTabelas } from './Relatorios/RelatorioTabelas';
+export { default as Profile } from './Profile';
+export { default as Dashboard } from './Dashboard/index';

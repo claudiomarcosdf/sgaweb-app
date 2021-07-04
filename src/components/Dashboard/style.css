@@ -1,0 +1,13 @@
+.ico-great {
+	color: lime;
+	padding-right: 10px;
+}
+
+.ico-bad {
+	color: rgb(207, 103, 34);
+	padding-right: 10px;
+}
+
+.box-totals {
+	margin-bottom: 40px;
+}
