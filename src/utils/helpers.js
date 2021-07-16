@@ -82,6 +82,10 @@ function isMatricula(value) {
 	return regex.test(value);
 }
 
+function caixaAlta(value) {
+	return value.toUpperCase();
+}
+
 export {
 	formatCurrency,
 	formatNumber,
@@ -93,5 +97,6 @@ export {
 	isNumber,
 	formatCpfToView,
 	zeroDecimal,
-	isMatricula
+	isMatricula,
+	caixaAlta
 };

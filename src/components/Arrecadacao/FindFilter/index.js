@@ -21,7 +21,12 @@ export default function FindFilter({ onClick }) {
 	};
 
 	const handleChangeValues = (e) => {
-		setFilter({ ...filter, [e.target.name]: e.target.value });
+		let value = e.target.value;
+
+		if (e.target.name === 'orgao') {
+			value = value.toUpperCase();
+		}
+		setFilter({ ...filter, [e.target.name]: value });
 	};
 
 	const handleChecked = (e) => {
@@ -76,7 +81,7 @@ export default function FindFilter({ onClick }) {
 					<Form.Group as={Col} controlId="formGridOrgao">
 						<Form.Label>Órgão</Form.Label>
 						<Form.Control
-							placeholder="Digite o número do órgão"
+							placeholder="Digite o nome do órgão"
 							name="orgao"
 							onChange={handleChangeValues}
 							value={filter.orgao}
