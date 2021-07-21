@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 import { getAllowedRoutes, isLoggedIn } from 'utils';
 import { PrivateRoutesConfig } from 'config';
-import { TopNav } from 'components/common';
+import { TopNav, Footer } from 'components/common';
 import MapAllowedRoutes from 'routes/MapAllowedRoutes';
 
 function PrivateRoutes() {
@@ -16,6 +16,7 @@ function PrivateRoutes() {
 		<Fragment>
 			<TopNav routes={allowedRoutes} prefix={match.path} className="bg-white" />
 			<MapAllowedRoutes routes={allowedRoutes} basePath="/app" isAddNotFound />
+			<Footer />
 		</Fragment>
 	);
 }

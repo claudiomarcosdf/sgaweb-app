@@ -6,7 +6,8 @@ import {
 	IMPORT,
 	RECEBIDOS,
 	FILTRO_CONSULTA,
-	FILTRO_GRAFICO
+	FILTRO_GRAFICO,
+	FILTRO_GRAFICO_POR_EMPRESA
 } from '../graphql/recebimento';
 import { setMessage } from 'states/Message/messageActions';
 
@@ -46,11 +47,20 @@ export default function RecebimentoContextProvider({ children }) {
 		}
 	);
 
-	//Grafico
+	//Graficos
 	const [
 		getDataChart,
 		{ data: dataTotais, error: errorTotais, loading: loadingTotais }
 	] = useLazyQuery(FILTRO_GRAFICO, { fetchPolicy: 'no-cache' });
+
+	const [
+		getDataChartPorEmpresa,
+		{
+			data: dataTotalEmpresa,
+			error: errorTotalEmpresa,
+			loading: loadingTotalEmpresa
+		}
+	] = useLazyQuery(FILTRO_GRAFICO_POR_EMPRESA, { fetchPolicy: 'no-cache' });
 
 	const verifyMessage = (data) => {
 		if (data) {
@@ -119,7 +129,14 @@ export default function RecebimentoContextProvider({ children }) {
 						getDataChart,
 						totais: dataTotais ? dataTotais.totaisMensais : [],
 						errorTotais,
-						loadingTotais
+						loadingTotais,
+
+						getDataChartPorEmpresa,
+						totalPorEmpresa: dataTotalEmpresa
+							? dataTotalEmpresa.totalMensalPorEmpresa
+							: [],
+						errorTotalEmpresa,
+						loadingTotalEmpresa
 					}
 				}}
 			>

@@ -53,3 +53,12 @@ export const FILTRO_GRAFICO = gql`
 		totaisMensais(ano: $ano)
 	}
 `;
+
+export const FILTRO_GRAFICO_POR_EMPRESA = gql`
+	query totalMensalPorEmpresa($ano: String, $mes: String) {
+		totalMensalPorEmpresa(ano: $ano, mes: $mes) {
+			orgao
+			total
+		}
+	}
+`;

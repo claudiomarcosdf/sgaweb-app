@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { JumbotronWrapper } from '../common';
 import ArrecadacaoChart from './ArrecadacaoChart';
 import AssociadoCard from './AssociadoCard';
+import OrgaosChart from './OrgaosChart';
 
 function Dashboard() {
 	return (
@@ -9,6 +10,7 @@ function Dashboard() {
 			<JumbotronWrapper title="Painel de gestão">
 				<AssociadoCard />
 				<ArrecadacaoChart />
+				<OrgaosChart />
 			</JumbotronWrapper>
 		</>
 	);
