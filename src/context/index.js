@@ -2,6 +2,7 @@ import React from 'react';
 import AssociadoContextProvider from './AssociadoContext';
 import RecebimentoContextProvider from './RecebimentoContext';
 import EmpresaContextProvider from './EmpresaContext';
+import OrgaoContextProvider from './OrgaoContext';
 import RelatorioContextProvider from './RelatorioContext';
 import { AuthProvider } from './AuthContext';
 
@@ -15,5 +16,6 @@ export const AllContextProviders = composeProviders(
 	AssociadoContextProvider,
 	RecebimentoContextProvider,
 	EmpresaContextProvider,
+	OrgaoContextProvider,
 	RelatorioContextProvider
 );

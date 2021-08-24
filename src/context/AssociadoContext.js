@@ -33,6 +33,7 @@ export default function AssociadoContextProvider({ children }) {
 		findBy,
 		{ data: associadoData, loading: loadingAssociado }
 	] = useLazyQuery(GET_ASSOCIADO, {
+		fetchPolicy: 'cache-and-network',
 		onCompleted: ({ getAssociado: associado }) =>
 			callFindMessage(associado, null),
 		onError: (error) => callFindMessage(null, error)
@@ -58,7 +59,7 @@ export default function AssociadoContextProvider({ children }) {
 
 	const callMessage = (data, error, messageSuccess) => {
 		if (data) {
-			setInputs(data);
+			setInputs(unformatJSON(data));
 			dispatch(
 				setMessage({
 					...msgDefault,

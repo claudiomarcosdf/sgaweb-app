@@ -26,7 +26,8 @@ function unformatJSON(value) {
 		sigla: value.empresa.sigla || '',
 		orgao: value.empresa.orgao || '',
 		dtadmissao: value.empresa.dtadmissao || '',
-		aposentado: value.empresa.aposentado
+		aposentado: value.empresa.aposentado,
+		inativoAt: value.inativoAt || ''
 	};
 
 	return loadedValues;

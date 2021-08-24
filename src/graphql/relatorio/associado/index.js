@@ -8,6 +8,8 @@ export const RELATORIO_ASSOCIADO = gql`
 		$exibeMatricula: Boolean!
 		$exibeDataFiliacao: Boolean!
 		$exibeCpf: Boolean!
+		$exibeDataNascimento: Boolean!
+		$exibeSexo: Boolean!
 		$exibeEmpresa: Boolean!
 		$exibeContatos: Boolean!
 		$exibeEndereco: Boolean!
@@ -22,8 +24,10 @@ export const RELATORIO_ASSOCIADO = gql`
 			nome
 			matricula @include(if: $exibeMatricula)
 			dtfiliacao @include(if: $exibeDataFiliacao)
-			dados_pessoais @include(if: $exibeCpf) {
-				cpf
+			dados_pessoais {
+				cpf @include(if: $exibeCpf)
+				dtnascimento @include(if: $exibeDataNascimento)
+				sexo @include(if: $exibeSexo)
 			}
 			empresa @include(if: $exibeEmpresa) {
 				sigla

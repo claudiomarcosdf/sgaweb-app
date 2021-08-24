@@ -26,3 +26,28 @@
 .box-table {
 	padding-top: 20px;
 }
+
+.box-links {
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+
+.button-link {
+	display: flex;
+	width: 160px;
+	justify-content: center;
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-right: 8px;
+	color: #4682b4;
+	color: #0198e1;
+	font-weight: 500;
+	background-color: #ffff;
+	border: 1px solid #dcdcdc;
+	transition: all 0.2s ease-in-out;
+}
+
+.button-link:hover {
+	transform: scale(1.1);
+}

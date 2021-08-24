@@ -4,20 +4,22 @@ import { getAllowedRoutes } from 'utils';
 import { JumbotronWrapper } from '../common';
 import MapAllowedRoutes from 'routes/MapAllowedRoutes';
 
+import './style.css';
+
 const basePath = '/app/relatorios';
 function Relatorios({ children }) {
 	const allowedRoutes = getAllowedRoutes(children);
 	return (
 		<JumbotronWrapper title="Relatórios">
-			{allowedRoutes.map(({ path, title }) => (
-				<Link
-					key={path}
-					to={`${basePath}${path}`}
-					style={{ marginRight: '15px', color: '#0466c8' }}
-				>
-					{title}
-				</Link>
-			))}
+			<div className="box-links">
+				{allowedRoutes.map(({ path, title }) => (
+					<div className="button-link">
+						<Link key={path} to={`${basePath}${path}`}>
+							{title}
+						</Link>
+					</div>
+				))}
+			</div>
 
 			<MapAllowedRoutes routes={allowedRoutes} basePath={basePath} />
 		</JumbotronWrapper>

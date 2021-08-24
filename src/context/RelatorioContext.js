@@ -10,13 +10,30 @@ export default function RelatorioContextProvider({ children }) {
 
 	// const { data: dataup, loading: load, error: err } = useQuery(RELATORIO);
 
+	//Como o array está congelada no modo estrito,
+	//você precisará copiar o array "slice()"
+	//antes de classificá-la
+	function orderBy(data) {
+		const copyData = [...data.associadosFiltro];
+		const dataSorted = copyData.sort(function(a, b) {
+			const nomeA = a.nome.toUpperCase();
+			const nomeB = b.nome.toUpperCase();
+			if (nomeA < nomeB) return -1;
+			if (nomeA > nomeB) return 1;
+
+			return 0;
+		});
+
+		return dataSorted;
+	}
+
 	return (
 		<>
 			<MyContext.Provider
 				value={{
 					associados: {
 						filter,
-						items: data ? data.associadosFiltro : [],
+						items: data ? orderBy(data) : [],
 						loading,
 						error
 					}

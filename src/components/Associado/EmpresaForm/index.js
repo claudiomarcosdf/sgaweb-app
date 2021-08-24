@@ -56,7 +56,7 @@ export default function EmpresaForm() {
 						<select
 							id="inputState"
 							className={
-								!form.inputs.sigla
+								!form.inputs?.sigla
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}
@@ -108,13 +108,13 @@ export default function EmpresaForm() {
 					</div>
 				</div>
 				<div className="form-row space-botton">
-					<div className="col">
+					<div className="col-3">
 						<Form.Label>Data de admissão</Form.Label>
 						<Form.Control
 							type="date"
 							placeholder="Data de admissão"
 							className={
-								!form.inputs.dtadmissao
+								!form.inputs?.dtadmissao
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}

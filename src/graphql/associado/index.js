@@ -20,6 +20,7 @@ export const GET_ASSOCIADO = gql`
 			matsindicato
 			status
 			dtfiliacao
+			inativoAt
 			dados_pessoais {
 				dtnascimento
 				cpf

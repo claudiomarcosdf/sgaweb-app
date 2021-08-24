@@ -10,6 +10,8 @@ export default function AssociadoTable({ data, filtro }) {
 		exibeMatricula,
 		exibeDataFiliacao,
 		exibeCpf,
+		exibeDataNascimento,
+		exibeSexo,
 		exibeEmpresa,
 		exibeContatos,
 		exibeEndereco
@@ -20,6 +22,8 @@ export default function AssociadoTable({ data, filtro }) {
 
 	exibeMatricula && headers.push('Matricula');
 	exibeCpf && headers.push('Cpf');
+	exibeDataNascimento && headers.push('Data de nascimento');
+	exibeSexo && headers.push('Sexo');
 	exibeDataFiliacao && headers.push('Data de filiação');
 	exibeEmpresa && headers.push('Empresa');
 	exibeEndereco && headers.push('Endereço', 'Bairro');
@@ -48,7 +52,12 @@ export default function AssociadoTable({ data, filtro }) {
 	const dataToExport = data.map((item) => {
 		let columns = {};
 		if (item.matricula) columns.matricula = item.matricula;
-		if (item.dados_pessoais) columns.cpf = item.dados_pessoais.cpf;
+		if (item.dados_pessoais) {
+			if (item.dados_pessoais.cpf) columns.cpf = item.dados_pessoais.cpf;
+			if (item.dados_pessoais.dtnascimento)
+				columns.dtnascimento = item.dados_pessoais.dtnascimento;
+			if (item.dados_pessoais.sexo) columns.sexo = item.dados_pessoais.sexo;
+		}
 		if (item.dtfiliacao) columns.dtfiliacao = item.dtfiliacao;
 		if (item.empresa) columns.sigla = item.empresa.sigla;
 		if (item.endereco.logradouro) {
@@ -105,6 +114,12 @@ export default function AssociadoTable({ data, filtro }) {
 								<td>{format.capitalizeFullName(item.nome)}</td>
 								{exibeMatricula && <td>{item?.matricula}</td>}
 								{exibeCpf && <td>{item?.dados_pessoais?.cpf}</td>}
+								{exibeDataNascimento && (
+									<td>
+										{format.formatDateBr(item?.dados_pessoais?.dtnascimento)}
+									</td>
+								)}
+								{exibeSexo && <td>{item?.dados_pessoais?.sexo}</td>}
 								{exibeDataFiliacao && (
 									<td>{format.formatDateBr(item?.dtfiliacao)}</td>
 								)}

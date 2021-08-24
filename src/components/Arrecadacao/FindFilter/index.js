@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Col, Button, Badge } from 'react-bootstrap';
 
+import { useOrgaoContext } from 'context/OrgaoContext';
+
 import '../style.css';
 
 export default function FindFilter({ onClick }) {
@@ -15,6 +17,7 @@ export default function FindFilter({ onClick }) {
 		exibirRubrica: false
 	};
 	const [filter, setFilter] = useState(initialFilter);
+	const { orgaos, loading } = useOrgaoContext();
 
 	const handleClick = () => {
 		onClick(filter);
@@ -81,11 +84,19 @@ export default function FindFilter({ onClick }) {
 					<Form.Group as={Col} controlId="formGridOrgao">
 						<Form.Label>Órgão</Form.Label>
 						<Form.Control
-							placeholder="Digite o nome do órgão"
+							as="select"
+							placeholder="Selecione a sigla do órgão"
+							id="inputState"
 							name="orgao"
 							onChange={handleChangeValues}
 							value={filter.orgao}
-						/>
+						>
+							<option disabled> </option>
+							{orgaos &&
+								orgaos.itens.map((orgao, idx) => {
+									return <option key={idx}>{orgao.sigla}</option>;
+								})}
+						</Form.Control>
 					</Form.Group>
 
 					<Form.Group as={Col} controlId="formGridRubrica">

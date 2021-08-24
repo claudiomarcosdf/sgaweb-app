@@ -62,18 +62,18 @@ export default [
 			{
 				component: RelatorioAssociado,
 				path: '/relatorio-associado',
-				title: 'Relatório Associado'
+				title: 'Associados'
 			},
 			{
 				component: RelatorioArrecadacao,
 				path: '/relatorio-arrecadacao',
-				title: 'Relatório arrecadação',
+				title: 'Arrecadação',
 				permission: [Roles.SUPER, Roles.ADMIN]
 			},
 			{
 				component: RelatorioTabelas,
 				path: '/relatorio-tabelas',
-				title: 'Relatório tabelas'
+				title: 'Tabelas do sistema'
 			}
 		]
 	},

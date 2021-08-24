@@ -12,6 +12,8 @@ function RelatorioAssociado() {
 		exibeMatricula: false,
 		exibeDataFiliacao: false,
 		exibeCpf: false,
+		exibeDataNascimento: false,
+		exibeSexo: false,
 		exibeEmpresa: false,
 		exibeContatos: false,
 		exibeEndereco: false
@@ -151,6 +153,24 @@ function RelatorioAssociado() {
 							label="Cpf"
 							onChange={handleChecked}
 							checked={filtro.exibeCpf}
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Check
+							inline
+							name="exibeDataNascimento"
+							label="Data de nascimento"
+							onChange={handleChecked}
+							checked={filtro.exibeDataNascimento}
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Check
+							inline
+							name="exibeSexo"
+							label="Sexo"
+							onChange={handleChecked}
+							checked={filtro.exibeSexo}
 						/>
 					</Form.Group>
 					<Form.Group>

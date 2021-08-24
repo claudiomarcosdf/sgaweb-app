@@ -43,6 +43,13 @@ export default function DadosPessoaisForm() {
 							onChange={handleChangeChecked}
 							checked={form.inputs.status === 'ATIVO'}
 						/>
+						<Form.Label className="display-situacao">
+							{form.inputs?.inativoAt
+								? `Desfiliou-se em: ${format.formatDateBr(
+										form.inputs.inativoAt
+								  )}`
+								: ''}
+						</Form.Label>
 					</div>
 					<div className="col">
 						<Form.Label>Matricula Sindicato</Form.Label>
@@ -61,7 +68,7 @@ export default function DadosPessoaisForm() {
 						<input
 							type="text"
 							className={
-								!form.inputs.matricula
+								!form.inputs?.matricula
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}
@@ -78,7 +85,7 @@ export default function DadosPessoaisForm() {
 							type="text"
 							name="nome"
 							className={
-								!form.inputs.nome
+								!form.inputs?.nome
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}
@@ -95,7 +102,6 @@ export default function DadosPessoaisForm() {
 							placeholder="Data de filiação"
 							onChange={handleChangeValues}
 							value={form.inputs?.dtfiliacao || ''}
-							disabled={form.inputs?.id ? false : true}
 							className="font-weight-bold"
 						/>
 					</div>
@@ -107,7 +113,7 @@ export default function DadosPessoaisForm() {
 							type="date"
 							name="dtnascimento"
 							className={
-								!form.inputs.dtnascimento
+								!form.inputs?.dtnascimento
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}
@@ -124,7 +130,7 @@ export default function DadosPessoaisForm() {
 							maskChar=" "
 							name="cpf"
 							className={
-								!form.inputs.cpf
+								!form.inputs?.cpf
 									? 'form-control is-invalid'
 									: 'form-control font-weight-bold'
 							}
