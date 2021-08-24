@@ -21,7 +21,7 @@ function LandingPage() {
 			<div className="w3-display-bottomleft w3-padding-large">
 				Developed by{' '}
 				<a
-					href="https://www.linkedin.com/in/claudio-marcos-de-jesus-b876a21ab/"
+					href="https://www.linkedin.com/in/claudio-marcos-developer/"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
