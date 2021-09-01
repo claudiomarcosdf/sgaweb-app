@@ -7,7 +7,7 @@ function Footer(props) {
 				Copyright © 2021 - Todos os direitos reservados | Desenvolvido por{' '}
 				<b>
 					<a
-						href="https://www.linkedin.com/in/claudio-marcos-developer"
+						href="https://claudiomarcosdf.wixsite.com/portifolio"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
