@@ -100,8 +100,8 @@ function ResetPassword() {
 				</div>
 
 				{success && (
-					<div className="success-msg-simple">
-						<i className="fas fa-info-circle">
+					<div className="simple-msg">
+						<i className="fas fa-info-circle success-simple-msg">
 							&nbsp; Sua senha foi alterada com sucesso!
 						</i>
 					</div>

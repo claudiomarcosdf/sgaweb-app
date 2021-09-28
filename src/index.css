@@ -87,13 +87,17 @@ label {
 	align-items: center;
 }
 
-.success-msg-simple {
+.simple-msg {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding-top: 2rem;
 }
 
-.success-msg-simple i {
-	color: rgb(84, 170, 84);
+.success-simple-msg {
+	color: #1abc9c;
+}
+
+.fail-simple-msg {
+	color: salmon;
 }

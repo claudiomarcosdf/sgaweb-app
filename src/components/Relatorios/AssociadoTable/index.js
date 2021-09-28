@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import '../style.css';
 import * as format from '../../../utils/helpers';
 import ExportPdf from 'components/common/ExportPdf';
+import ExportExcel from 'components/common/ExportExcel';
 
 export default function AssociadoTable({ data, filtro }) {
 	const {
@@ -55,10 +56,13 @@ export default function AssociadoTable({ data, filtro }) {
 		if (item.dados_pessoais) {
 			if (item.dados_pessoais.cpf) columns.cpf = item.dados_pessoais.cpf;
 			if (item.dados_pessoais.dtnascimento)
-				columns.dtnascimento = item.dados_pessoais.dtnascimento;
+				columns.dtnascimento = format.formatDateBr(
+					item.dados_pessoais.dtnascimento
+				);
 			if (item.dados_pessoais.sexo) columns.sexo = item.dados_pessoais.sexo;
 		}
-		if (item.dtfiliacao) columns.dtfiliacao = item.dtfiliacao;
+		if (item.dtfiliacao)
+			columns.dtfiliacao = format.formatDateBr(item.dtfiliacao);
 		if (item.empresa) columns.sigla = item.empresa.sigla;
 		if (item.endereco.logradouro) {
 			columns.logradouro = item.endereco.logradouro;
@@ -91,6 +95,11 @@ export default function AssociadoTable({ data, filtro }) {
 								headers={headers}
 								data={dataToExport}
 								columnRight={-1}
+								fileName={'Relatorio-associado'}
+							/>
+							<ExportExcel
+								headers={headers}
+								data={dataToExport}
 								fileName={'Relatorio-associado'}
 							/>
 						</td>

@@ -10,7 +10,7 @@ import Spinner from './common/Spinner';
 
 function ForgotPassword() {
 	const [errors, setErrors] = useState({});
-	const [success, setSuccess] = useState(false);
+	const [success, setSuccess] = useState('');
 	const { onChange, onSubmit, values } = useForm(sendEmailCallback, {
 		email: ''
 	});
@@ -18,15 +18,40 @@ function ForgotPassword() {
 	const [forgotPassword, { loading }] = useMutation(FORGOT_PASSWORD, {
 		variables: values,
 		update(_, result) {
-			setSuccess(true);
+			if (result.data.forgotPassword) {
+				setSuccess('success');
+			} else {
+				setSuccess('fail');
+			}
 		},
-		onError(err) {
-			setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
+		onError(error) {
+			setErrors(error.graphQLErrors[0]?.extensions.exception.errors);
 		}
 	});
 
 	function sendEmailCallback() {
 		forgotPassword();
+	}
+
+	function responseMessage() {
+		if (success === 'success') {
+			return (
+				<div className="simple-msg">
+					<i className="fas fa-info-circle success-simple-msg">
+						&nbsp; O link para resetar sua senha foi enviado com sucesso!
+					</i>
+				</div>
+			);
+		}
+		if (success === 'fail') {
+			return (
+				<div className="simple-msg">
+					<i className="fas fa-info-circle fail-simple-msg">
+						&nbsp; Falha ao enviar link de recuperação de senha!
+					</i>
+				</div>
+			);
+		}
 	}
 
 	return (
@@ -45,8 +70,8 @@ function ForgotPassword() {
 				</Form.Group>
 
 				{Object.keys(errors).length > 0 &&
-					Object.values(errors).map((value) => (
-						<Alert variant="danger" key={value}>
+					Object.values(errors).map((value, idx) => (
+						<Alert variant="danger" key={idx}>
 							<i className="fas fa-exclamation-triangle"></i> {value}
 						</Alert>
 					))}
@@ -60,13 +85,7 @@ function ForgotPassword() {
 					</div>
 				</div>
 
-				{success && (
-					<div className="success-msg-simple">
-						<i className="fas fa-info-circle">
-							&nbsp; O link para resetar sua senha foi enviado com sucesso!
-						</i>
-					</div>
-				)}
+				{responseMessage()}
 			</Form>
 		</JumbotronWrapper>
 	);
