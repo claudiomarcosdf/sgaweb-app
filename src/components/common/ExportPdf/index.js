@@ -73,9 +73,11 @@ export default function ExportPdf({
 	return (
 		<>
 			<Button
-				variant="link"
+				// variant="link"
+				variant="danger"
 				onClick={() => exportPDF()}
-				style={{ color: '#80ffdb', fontSize: '0.8rem' }}
+				// style={{ color: '#80ffdb', fontSize: '0.8rem' }}
+				style={{ color: '#ffff', fontSize: '0.8rem' }}
 			>
 				Salvar em pdf <i className="far fa-file-pdf icon-space"></i>
 			</Button>

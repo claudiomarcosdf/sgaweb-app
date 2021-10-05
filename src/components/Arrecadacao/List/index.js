@@ -3,9 +3,15 @@ import Table from 'react-bootstrap/Table';
 
 import * as format from '../../../utils/helpers';
 import ExportPdf from 'components/common/ExportPdf';
+import ExportExcel from 'components/common/ExportExcel';
 
-export default function List({ registers }) {
+export default function List({ registers, filtro }) {
 	const [doc, setDoc] = useState({});
+
+	let headers = ['Matrícula', 'Nome', 'Cpf', 'Valor'];
+	const { exibirOrgao, exibirRubrica } = filtro;
+	exibirRubrica && headers.unshift('Rubrica');
+	exibirOrgao && headers.unshift('Orgão');
 
 	const registersSorted = registers
 		.slice()
@@ -13,7 +19,12 @@ export default function List({ registers }) {
 
 	const customDoc = () => {
 		const dataToPdf = registersSorted.map((item) => {
+			let columns = {};
+			if (item.orgao) columns.orgao = item.orgao;
+			if (item.rubrica) columns.rubrica = item.rubrica;
+
 			return {
+				...columns,
 				matricula: item.matricula,
 				nome: format.capitalizeFullName(item.nome),
 				cpf: format.formatCpfToView(item.cpf),
@@ -53,9 +64,14 @@ export default function List({ registers }) {
 								// orientation="landscape"
 								title={doc.title}
 								subtitle={doc.subtitle}
-								headers={['Matrícula', 'Nome', 'Cpf', 'Valor']}
+								headers={headers}
 								data={doc.dataToPdf}
-								columnRight={3}
+								columnRight={headers.length}
+								fileName={doc.fileName}
+							/>
+							<ExportExcel
+								headers={headers}
+								data={doc.dataToPdf}
 								fileName={doc.fileName}
 							/>
 						</td>

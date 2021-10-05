@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { JumbotronWrapper } from '../common';
 
 import FindFilter from './FindFilter';
@@ -9,8 +9,11 @@ import { useRecebimentoContext } from '../../context/RecebimentoContext';
 
 function Arrecadacao() {
 	const { consulta } = useRecebimentoContext();
+	const [filter, setFilter] = useState({});
 
 	const handleClick = (filter) => {
+		setFilter({ ...filter });
+
 		consulta.filter({
 			variables: { ...filter }
 		});
@@ -32,7 +35,7 @@ function Arrecadacao() {
 								return acc + cur.valor;
 							}, 0)}
 						/>
-						<List registers={consulta.dataFilter} />
+						<List registers={consulta.dataFilter} filtro={filter} />
 					</>
 				)}
 			</JumbotronWrapper>

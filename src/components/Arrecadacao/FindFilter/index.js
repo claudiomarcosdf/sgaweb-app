@@ -81,7 +81,7 @@ export default function FindFilter({ onClick }) {
 					<Badge variant="secondary">Filtros opcionais abaixo</Badge>
 				</Form.Row>
 				<Form.Row>
-					<Form.Group as={Col} controlId="formGridOrgao">
+					<Form.Group as={Col}>
 						<Form.Label>Órgão</Form.Label>
 						<Form.Control
 							as="select"
