@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import ReactExport from 'react-data-export';
+import moment from 'moment';
 
 import './style.css';
 
@@ -8,6 +9,8 @@ const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 
 export default function ExportExcel({ headers, data, fileName }) {
+	const abaDoc = `SGAWeb - ${moment().format('DD-MM-YYYY')}`;
+
 	const columnsTitle = headers.map((title, idx) => {
 		return {
 			title,
@@ -46,10 +49,7 @@ export default function ExportExcel({ headers, data, fileName }) {
 	function button() {
 		return (
 			<>
-				<Button
-					variant="success"
-					style={{ color: '#ffff', fontSize: '0.8rem' }}
-				>
+				<Button variant="success" className="button">
 					Salvar em excel <i className="far fa-file-excel icon-space"></i>
 				</Button>
 			</>
@@ -59,7 +59,7 @@ export default function ExportExcel({ headers, data, fileName }) {
 	return (
 		<>
 			<ExcelFile element={button()} filename={fileName}>
-				<ExcelSheet dataSet={customDataSet} name="Associados" />
+				<ExcelSheet dataSet={customDataSet} name={abaDoc} />
 			</ExcelFile>
 		</>
 	);

@@ -8,6 +8,13 @@ import _ from 'lodash';
 
 import './style.css';
 
+const styleButton = {
+	color: '#ffff',
+	fontSize: '0.9rem',
+	width: '142px',
+	padding: '1px 1px'
+};
+
 export default function ExportPdf({
 	orientation,
 	title,
@@ -77,7 +84,7 @@ export default function ExportPdf({
 				variant="danger"
 				onClick={() => exportPDF()}
 				// style={{ color: '#80ffdb', fontSize: '0.8rem' }}
-				style={{ color: '#ffff', fontSize: '0.8rem' }}
+				className="button"
 			>
 				Salvar em pdf <i className="far fa-file-pdf icon-space"></i>
 			</Button>
