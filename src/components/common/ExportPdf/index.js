@@ -8,12 +8,12 @@ import _ from 'lodash';
 
 import './style.css';
 
-const styleButton = {
-	color: '#ffff',
-	fontSize: '0.9rem',
-	width: '142px',
-	padding: '1px 1px'
-};
+// const styleButton = {
+// 	color: '#ffff',
+// 	fontSize: '0.9rem',
+// 	width: '142px',
+// 	padding: '1px 1px'
+// };
 
 export default function ExportPdf({
 	orientation,

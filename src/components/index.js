@@ -13,3 +13,4 @@ export { default as RelatorioArrecadacao } from './Relatorios/RelatorioArrecadac
 export { default as RelatorioTabelas } from './Relatorios/RelatorioTabelas';
 export { default as Profile } from './Profile';
 export { default as Dashboard } from './Dashboard/index';
+export { default as ConnectionError } from './ConnectionError';

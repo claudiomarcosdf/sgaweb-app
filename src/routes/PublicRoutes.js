@@ -5,7 +5,8 @@ import {
 	Register,
 	ForgotPassword,
 	ResetPassword,
-	LandingPage
+	LandingPage,
+	ConnectionError
 } from 'components';
 
 function PublicRoutes() {
@@ -23,6 +24,9 @@ function PublicRoutes() {
 				</Route>
 				<Route path="/login">
 					<Login />
+				</Route>
+				<Route path="/connection-error">
+					<ConnectionError />
 				</Route>
 				<Route path="">
 					<LandingPage />

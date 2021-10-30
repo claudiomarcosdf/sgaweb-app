@@ -21,16 +21,17 @@ function TopNav(props) {
 		</Popover>
 	);
 
-	const showLinks = (path, title) => {
+	const showLinks = (path, title, idx) => {
 		if (title === 'Registrar') {
 			return (
 				<OverlayTrigger
 					placement="bottom"
 					delay={{ show: 250, hide: 400 }}
 					overlay={renderTooltip}
+					key={idx}
 				>
 					<Link
-						key={path}
+						key={idx}
 						className="w3-bar-item w3-hover-color w3-button w3-round"
 						style={{ textDecoration: 'none' }}
 						to={`${props.prefix}${path}`}
@@ -60,7 +61,9 @@ function TopNav(props) {
 					<i className="fab fa-accusoft"></i> SGA
 				</div>
 				<div className="w3-right ">
-					{props.routes.map(({ path, title }) => showLinks(path, title))}
+					{props.routes.map(({ path, title }, idx) =>
+						showLinks(path, title, idx)
+					)}
 					{isLoggedIn() && (
 						<Button
 							onClick={handleLogout}

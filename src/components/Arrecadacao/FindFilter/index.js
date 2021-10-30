@@ -17,7 +17,7 @@ export default function FindFilter({ onClick }) {
 		exibirRubrica: false
 	};
 	const [filter, setFilter] = useState(initialFilter);
-	const { orgaos, loading } = useOrgaoContext();
+	const { orgaos } = useOrgaoContext();
 
 	const handleClick = () => {
 		onClick(filter);
