@@ -29,9 +29,9 @@ function Login() {
 		},
 		onError(err) {
 			//Se o Path do servidor GraphQL não estiver correto
-			if (err.message === 'Failed to fetch') {
-				history.push('/connection-error');
-			}
+			// if (err.message === 'Failed to fetch') {
+			// 	history.push('/connection-error');
+			// }
 
 			setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
 		},

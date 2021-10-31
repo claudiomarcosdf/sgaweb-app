@@ -1,7 +1,6 @@
-import { ApolloClient, InMemoryCache, from } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
-import { onError } from '@apollo/client/link/error';
 
 const httpLink = createUploadLink({
 	uri: process.env.REACT_APP_URL_GRAPHQL
@@ -16,29 +15,9 @@ const authLink = setContext(() => {
 	};
 });
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-	if (graphQLErrors)
-		graphQLErrors.forEach(({ message, locations, path }) =>
-			console.log(
-				`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-			)
-		);
-
-	if (networkError) goToServerPageError();
-});
-
-const goToServerPageError = () => {
-	const baseDir = window ? window.location.origin.toString() : '';
-
-	if (typeof window !== 'undefined') {
-		window.location.href = baseDir + '/connection-error';
-		//window.location.href = window.location.href + 'connection-error';
-	}
-};
-
 export const client = new ApolloClient({
 	//@ts-ignore
-	link: from([errorLink, authLink, httpLink]),
+	link: authLink.concat(httpLink),
 
 	cache: new InMemoryCache()
 });
