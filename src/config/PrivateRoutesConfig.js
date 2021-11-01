@@ -50,7 +50,7 @@ export default [
 	},
 	{
 		component: Arrecadacao,
-		path: '/Arrecadacao',
+		path: '/arrecadacao',
 		title: 'Arrecadação',
 		permission: [Roles.SUPER, Roles.ADMIN]
 	},
