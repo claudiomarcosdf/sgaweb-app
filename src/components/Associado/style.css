@@ -28,3 +28,11 @@
 	color: rgb(250, 128, 114);
 	padding-top: 5px;
 }
+
+.custom-switch .custom-control-label {
+	color: rgb(250, 128, 114);
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label {
+	color: rgb(56, 154, 211);
+}

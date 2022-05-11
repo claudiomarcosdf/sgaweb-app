@@ -11,9 +11,25 @@ export const GET_ASSOCIADOS = gql`
 	}
 `;
 
+export const GET_FIND_NOMES = gql`
+	query associadosPesquisa($nome: String, $status: String) {
+		associadosPesquisa(nome: $nome, status: $status) {
+			id
+			nome
+			matricula
+			dados_pessoais {
+				cpf
+			}
+			empresa {
+				sigla
+			}
+		}
+	}
+`;
+
 export const GET_ASSOCIADO = gql`
-	query getAssociado($matricula: String, $nome: String) {
-		getAssociado(matricula: $matricula, nome: $nome) {
+	query getAssociado($matricula: String, $nome: String, $status: String) {
+		getAssociado(matricula: $matricula, nome: $nome, status: $status) {
 			id
 			nome
 			matricula

@@ -28,6 +28,8 @@ export default function ArrecadacaoChart() {
 	// }, [grafico.totais]);
 
 	const showChart = () => {
+		console.log(grafico.totais);
+
 		const data = {
 			labels: [
 				'Janeiro',
@@ -56,16 +58,41 @@ export default function ArrecadacaoChart() {
 			]
 		};
 
-		return (
-			<Bar
-				data={data}
-				width={100}
-				height={30}
-				options={{
-					maintainAspectRatio: true
-				}}
-			/>
-		);
+		const options = {
+			maintainAspectRatio: true,
+			tooltips: {
+				enabled: true,
+				mode: 'single',
+				callbacks: {
+					label: function(tooltipItem, data) {
+						let label = data.labels[tooltipItem.index];
+						let datasetLabel =
+							data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+						let formattedNumber = datasetLabel.toLocaleString('pt-BR', {
+							style: 'currency',
+							currency: 'BRL'
+						});
+						return label + ': ' + formattedNumber;
+					}
+				}
+			},
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							callback: function(value, index, values) {
+								return value.toLocaleString('pt-BR', {
+									style: 'currency',
+									currency: 'BRL'
+								});
+							}
+						}
+					}
+				]
+			}
+		};
+
+		return <Bar data={data} width={100} height={30} options={options} />;
 	};
 
 	return (

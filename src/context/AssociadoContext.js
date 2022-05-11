@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery, useMutation } from '@apollo/client';
 import {
 	GET_ASSOCIADOS,
+	GET_FIND_NOMES,
 	ADD_ASSOCIADO,
 	GET_ASSOCIADO,
 	EDIT_ASSOCIADO
@@ -37,6 +38,13 @@ export default function AssociadoContextProvider({ children }) {
 		onCompleted: ({ getAssociado: associado }) =>
 			callFindMessage(associado, null),
 		onError: (error) => callFindMessage(null, error)
+	});
+
+	const [
+		findNomes,
+		{ data: listaAssociados, loading: loadingPesquisa }
+	] = useLazyQuery(GET_FIND_NOMES, {
+		fetchPolicy: 'cache-first'
 	});
 
 	const [createAssociado, { loading: loadingCreate }] = useMutation(
@@ -78,6 +86,8 @@ export default function AssociadoContextProvider({ children }) {
 	};
 
 	const callFindMessage = (data, error) => {
+		console.log(data);
+
 		if (data) {
 			//Se não estiver nulo
 			//NESSE CASO TENHO QUE TRATAR, POIS RETORNA UM OBJETO NO FORMATO JSON
@@ -108,6 +118,13 @@ export default function AssociadoContextProvider({ children }) {
 					associados: {
 						items: allAssociados ? allAssociados.associados : [],
 						loadingAssociados
+					},
+					pesquisa: {
+						findNomes,
+						associados: listaAssociados
+							? listaAssociados.associadosPesquisa
+							: [],
+						loadingPesquisa
 					},
 					associado: {
 						findBy,

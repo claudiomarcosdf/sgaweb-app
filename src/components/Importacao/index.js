@@ -82,6 +82,7 @@ function Importacao() {
 						accept=".dat, .*"
 						onChange={handleChange}
 						type="file"
+						style={{ cursor: 'pointer' }}
 					/>
 					<Form.File.Label data-browse="Selecionar arquivo">
 						{fileToUpload

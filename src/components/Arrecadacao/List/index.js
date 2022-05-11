@@ -87,7 +87,7 @@ export default function List({ registers, filtro }) {
 						<th>Matricula</th>
 						<th>Nome</th>
 						<th>Cpf</th>
-						<th>Valor</th>
+						<th>Valor R$</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,7 +101,7 @@ export default function List({ registers, filtro }) {
 								<td>{format.capitalizeFullName(item.nome)}</td>
 								<td>{format.formatCpfToView(item.cpf)}</td>
 								<td className="text-right">
-									{format.formatBrazil(item.valor)}
+								  {format.formatBrazil(item.valor)}
 								</td>
 							</tr>
 						);

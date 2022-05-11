@@ -6,7 +6,7 @@ import { CenterToScreen } from './hoc';
 const JumbotronWrapper = (props) => {
 	return (
 		<Col {...props.col}>
-			<Jumbotron style={{ paddingTop: '20px' }}>
+			<Jumbotron style={styles}>
 				<h2>{props.title}</h2>
 				<hr />
 				{/* <p>{props.description}</p> */}
@@ -26,6 +26,11 @@ JumbotronWrapper.propTypes = {
 JumbotronWrapper.defaultProps = {
 	// description: 'Ohhh!!! Não tem nada aqui véi.',
 	col: { md: '10' }
+};
+
+const styles = {
+	paddingTop: '20px',
+	backgroundColor: '#f2f1f0'
 };
 
 export default memo(CenterToScreen(JumbotronWrapper));
