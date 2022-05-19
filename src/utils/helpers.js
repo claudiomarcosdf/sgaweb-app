@@ -90,6 +90,13 @@ function textoSituacao(value) {
 	return value === 'ATIVO' ? 'Ativo' : 'Desfiliado';
 }
 
+function anoAnteriorString(value) {
+	let ano = parseInt(value);
+	ano = ano - 1;
+
+	return ano.toString();
+}
+
 export {
 	formatCurrency,
 	formatNumber,
@@ -103,5 +110,6 @@ export {
 	zeroDecimal,
 	isMatricula,
 	caixaAlta,
-	textoSituacao
+	textoSituacao,
+	anoAnteriorString
 };

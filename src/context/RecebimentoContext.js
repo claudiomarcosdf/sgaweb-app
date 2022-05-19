@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLazyQuery, useMutation } from '@apollo/client';
 
@@ -23,6 +23,8 @@ export default function RecebimentoContextProvider({ children }) {
 		messageSuccess: '',
 		messageWarning: ''
 	};
+
+	const [anoSelecionado, setAnoSelecionado] = useState();
 
 	//Importação
 	const [verify, { data, loading, error }] = useLazyQuery(RECEBIDOS, {
@@ -136,7 +138,9 @@ export default function RecebimentoContextProvider({ children }) {
 							? dataTotalEmpresa.totalMensalPorEmpresa
 							: [],
 						errorTotalEmpresa,
-						loadingTotalEmpresa
+						loadingTotalEmpresa,
+						anoSelecionado,
+						setAnoSelecionado
 					}
 				}}
 			>
