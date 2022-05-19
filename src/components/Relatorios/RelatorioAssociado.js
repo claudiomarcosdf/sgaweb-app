@@ -25,9 +25,14 @@ function RelatorioAssociado() {
 
 	const handleChangeValues = (event) => {
 		const { name, value } = event.target;
+		let valor = value;
 
+		if (value === 'Desassociado') {
+			valor = 'Inativo';
+		}
+		console.log(filtro);
 		setShowTable(false);
-		setFiltro({ ...filtro, [name]: value });
+		setFiltro({ ...filtro, [name]: valor });
 	};
 
 	const handleCheckedRadio = (event) => {
@@ -78,7 +83,9 @@ function RelatorioAssociado() {
 							as="select"
 							name="status"
 							onChange={handleChangeValues}
-							value={filtro.status}
+							value={
+								filtro?.status === 'Inativo' ? 'Desassociado' : filtro?.status
+							}
 							className="destak"
 						>
 							<option></option>
@@ -225,6 +232,6 @@ function RelatorioAssociado() {
 	);
 }
 
-const statusOptions = ['Ativo', 'Inativo'];
+const statusOptions = ['Ativo', 'Desassociado'];
 
 export default memo(RelatorioAssociado);

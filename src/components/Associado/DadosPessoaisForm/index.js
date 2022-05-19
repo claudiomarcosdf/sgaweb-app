@@ -39,7 +39,7 @@ export default function DadosPessoaisForm() {
 							type="switch"
 							id="status"
 							variant="danger"
-							label={format.capitalize(form.inputs?.status || '')}
+							label={format.textoSituacao(form.inputs?.status || '')}
 							name="status"
 							onChange={handleChangeChecked}
 							checked={form.inputs.status === 'ATIVO'}

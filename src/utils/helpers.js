@@ -86,6 +86,10 @@ function caixaAlta(value) {
 	return value.toUpperCase();
 }
 
+function textoSituacao(value) {
+	return value === 'ATIVO' ? 'Ativo' : 'Desassociado';
+}
+
 export {
 	formatCurrency,
 	formatNumber,
@@ -98,5 +102,6 @@ export {
 	formatCpfToView,
 	zeroDecimal,
 	isMatricula,
-	caixaAlta
+	caixaAlta,
+	textoSituacao
 };
