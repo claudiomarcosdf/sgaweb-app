@@ -82,9 +82,7 @@ export default function PesquisaAssociados({ show, onClose }) {
 									type="switch"
 									id="status-pesquisa"
 									name="status-pesquisa"
-									label={
-										ativo ? 'Somente os Ativos' : 'Somente os Desassociados'
-									}
+									label={ativo ? 'Somente os ativos' : 'Somente os desfiliados'}
 									onChange={handleChangeChecked}
 									checked={ativo}
 								/>

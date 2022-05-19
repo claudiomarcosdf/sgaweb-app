@@ -105,9 +105,7 @@ export default function FindAndNew() {
 							type="switch"
 							id="status-busca"
 							name="status-busca"
-							label={
-								ativo ? 'Consultar os Ativos' : 'Consultar os Desassociados'
-							}
+							label={ativo ? 'Consultar os ativos' : 'Consultar os desfiliados'}
 							onChange={handleChangeChecked}
 							checked={ativo}
 						/>

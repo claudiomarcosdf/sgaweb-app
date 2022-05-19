@@ -87,7 +87,7 @@ function caixaAlta(value) {
 }
 
 function textoSituacao(value) {
-	return value === 'ATIVO' ? 'Ativo' : 'Desassociado';
+	return value === 'ATIVO' ? 'Ativo' : 'Desfiliado';
 }
 
 export {

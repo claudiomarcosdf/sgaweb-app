@@ -27,7 +27,7 @@ function RelatorioAssociado() {
 		const { name, value } = event.target;
 		let valor = value;
 
-		if (value === 'Desassociado') {
+		if (value === 'Desfiliado') {
 			valor = 'Inativo';
 		}
 		console.log(filtro);
@@ -84,7 +84,7 @@ function RelatorioAssociado() {
 							name="status"
 							onChange={handleChangeValues}
 							value={
-								filtro?.status === 'Inativo' ? 'Desassociado' : filtro?.status
+								filtro?.status === 'Inativo' ? 'Desfiliado' : filtro?.status
 							}
 							className="destak"
 						>
@@ -232,6 +232,6 @@ function RelatorioAssociado() {
 	);
 }
 
-const statusOptions = ['Ativo', 'Desassociado'];
+const statusOptions = ['Ativo', 'Desfiliado'];
 
 export default memo(RelatorioAssociado);

@@ -29,7 +29,7 @@ export default function AssociadoCard() {
 						<i className="fas fa-sort-amount-up ico-great" />{' '}
 						{`${zeroDecimal(ativos.length)} Ativos`} <br />
 						<i className="fas fa-sort-amount-down ico-bad " />{' '}
-						{`${zeroDecimal(total - ativos.length)} Desassociados`}
+						{`${zeroDecimal(total - ativos.length)} Desfiliados`}
 					</Card.Text>
 				</Card.Body>
 			</Card>
