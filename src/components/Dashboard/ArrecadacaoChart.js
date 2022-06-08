@@ -129,7 +129,7 @@ export default function ArrecadacaoChart() {
 				>
 					Ano atual
 				</Button>
-				<Bar data={dados} width={100} height={30} options={opcoes} />;
+				<Bar data={dados} width={100} height={30} options={opcoes} />
 			</>
 		);
 	};
