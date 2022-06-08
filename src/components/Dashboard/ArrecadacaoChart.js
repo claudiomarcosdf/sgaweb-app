@@ -119,7 +119,7 @@ export default function ArrecadacaoChart() {
 					size="sm"
 					onClick={(e) => handleAnteriorClick(e)}
 				>
-					Ano de anterior
+					Ano anterior
 				</Button>{' '}
 				<Button
 					variant="outline-success"
