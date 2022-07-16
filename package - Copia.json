@@ -64,5 +64,8 @@
 		"@storybook/react": "^5.2.1",
 		"prettier": "^1.18.2",
 		"react-data-export": "^0.6.0"
+	},
+	"resolutions": {
+		"ts-invariant": "^0.5.1"
 	}
 }
