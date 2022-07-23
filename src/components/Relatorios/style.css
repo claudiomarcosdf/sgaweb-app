@@ -51,3 +51,7 @@
 .button-link:hover {
 	transform: scale(1.1);
 }
+
+.space-button {
+	margin-bottom: 10px;
+}

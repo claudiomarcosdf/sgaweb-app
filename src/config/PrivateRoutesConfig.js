@@ -5,6 +5,7 @@ import Relatorios from 'components/Relatorios/Relatorios';
 import RelatorioAssociado from 'components/Relatorios/RelatorioAssociado';
 import RelatorioArrecadacao from 'components/Relatorios/RelatorioArrecadacao';
 import RelatorioTabelas from 'components/Relatorios/RelatorioTabelas';
+import RelatorioInadimplentes from 'components/Relatorios/RelatorioInadimplentes';
 
 import { Dashboard, Profile } from 'components';
 
@@ -74,6 +75,11 @@ export default [
 				component: RelatorioTabelas,
 				path: '/relatorio-tabelas',
 				title: 'Tabelas do sistema'
+			},
+			{
+				component: RelatorioInadimplentes,
+				path: '/relatorio-inadimplentes',
+				title: 'Inadimplentes'
 			}
 		]
 	},

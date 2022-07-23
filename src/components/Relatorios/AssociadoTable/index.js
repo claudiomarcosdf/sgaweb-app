@@ -37,7 +37,7 @@ export default function AssociadoTable({ data, filtro }) {
 			'Email'
 		);
 
-	//To Export
+	//To Export PDF
 	const titleReport = () => {
 		let status = '';
 		let aposentado = '';

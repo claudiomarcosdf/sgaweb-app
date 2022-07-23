@@ -58,3 +58,18 @@ export const RELATORIO = gql`
 		}
 	}
 `;
+
+export const FILTRO_INADIMPLENTES = gql`
+	query inadimplentes($ano: String, $mes: String) {
+		inadimplentes(ano: $ano, mes: $mes) {
+			id
+			matricula
+			nome
+			cpf
+			empresa
+			celular1
+			celular2
+			fone1
+		}
+	}
+`;
