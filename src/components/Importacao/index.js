@@ -36,10 +36,14 @@ function Importacao() {
 		setFeedback('');
 		const fileSelected = file;
 
+		//MENSALIDADE_2024_02Relatório.txt -> referente ao mês de JANEIRO (Janeiro que desconta em Fevereiro)
+
 		if (fileSelected) {
-			const mes = fileSelected.name.substr(23, 2);
-			const ano = fileSelected.name.substr(25, 4);
-			const rubrica = fileSelected.name.substr(17, 5);
+			const ano = fileSelected.name.substr(12, 4);
+			const mes = fileSelected.name.substr(17, 2);
+			const rubrica = '40392';
+
+			//const mes = (mes_file - 1).toString();
 
 			if (
 				ano &&
@@ -79,7 +83,7 @@ function Importacao() {
 			<div>
 				<Form.File id="custom-file" custom>
 					<Form.File.Input
-						accept=".dat, .*"
+						accept=".txt, .*"
 						onChange={handleChange}
 						type="file"
 						style={{ cursor: 'pointer' }}

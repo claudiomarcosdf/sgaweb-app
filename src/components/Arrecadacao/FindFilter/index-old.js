@@ -5,8 +5,6 @@ import { useOrgaoContext } from 'context/OrgaoContext';
 
 import '../style.css';
 
-const status = ['', 'QUITADO', 'PENDENTE', 'DESCONTO PARCIAL'];
-
 export default function FindFilter({ onClick }) {
 	const yearDefault = new Date().getFullYear();
 	const initialFilter = {
@@ -16,9 +14,7 @@ export default function FindFilter({ onClick }) {
 		orgao: '',
 		matricula: '',
 		exibirOrgao: false,
-		exibirRubrica: false,
-		exibirStatus: false,
-		status: ''
+		exibirRubrica: false
 	};
 	const [filter, setFilter] = useState(initialFilter);
 	const { orgaos } = useOrgaoContext();
@@ -90,7 +86,7 @@ export default function FindFilter({ onClick }) {
 						<Form.Control
 							as="select"
 							placeholder="Selecione a sigla do órgão"
-							id="inputOrgao"
+							id="inputState"
 							name="orgao"
 							onChange={handleChangeValues}
 							value={filter.orgao}
@@ -98,26 +94,7 @@ export default function FindFilter({ onClick }) {
 							<option disabled> </option>
 							{orgaos &&
 								orgaos.itens.map((orgao, idx) => {
-									return <option key={idx}>{orgao.nome}</option>;
-								})}
-						</Form.Control>
-					</Form.Group>
-				</Form.Row>
-				<Form.Row>
-					<Form.Group as={Col} controlId="formGridStatus" className="col-6">
-						<Form.Label>Status da mensalidade</Form.Label>
-						<Form.Control
-							as="select"
-							placeholder="Selecione o status"
-							id="inputState"
-							name="status"
-							onChange={handleChangeValues}
-							value={filter.status}
-						>
-							<option disabled> </option>
-							{status &&
-								status.map((descricao, idx) => {
-									return <option key={idx}>{descricao}</option>;
+									return <option key={idx}>{orgao.sigla}</option>;
 								})}
 						</Form.Control>
 					</Form.Group>
@@ -159,15 +136,6 @@ export default function FindFilter({ onClick }) {
 							label="Exibir rubrica"
 							onChange={handleChecked}
 							checked={filter.exibirRubrica}
-						/>
-					</Form.Group>
-					<Form.Group>
-						<Form.Check
-							inline
-							name="exibirStatus"
-							label="Exibir status da mensalidade"
-							onChange={handleChecked}
-							checked={filter.exibirStatus}
 						/>
 					</Form.Group>
 				</Form.Row>

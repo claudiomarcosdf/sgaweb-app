@@ -9,9 +9,10 @@ export default function List({ registers, filtro }) {
 	const [doc, setDoc] = useState({});
 
 	let headers = ['Matrícula', 'Nome', 'Cpf', 'Valor'];
-	const { exibirOrgao, exibirRubrica } = filtro;
-	exibirRubrica && headers.unshift('Rubrica');
+	const { exibirOrgao, exibirRubrica, exibirStatus } = filtro;
+	exibirRubrica && headers.unshift('Rubrica'); //início do array
 	exibirOrgao && headers.unshift('Orgão');
+	exibirStatus && headers.splice(headers.length - 1, 0, 'Status'); //insere na penúltima posição
 
 	const registersSorted = registers
 		.slice()
@@ -23,11 +24,15 @@ export default function List({ registers, filtro }) {
 			if (item.orgao) columns.orgao = item.orgao;
 			if (item.rubrica) columns.rubrica = item.rubrica;
 
+			let columnStatus = {};
+			if (item.status) columns.status = item.status;
+
 			return {
 				...columns,
 				matricula: item.matricula,
 				nome: format.capitalizeFullName(item.nome),
 				cpf: format.formatCpfToView(item.cpf),
+				...columnStatus,
 				valor: format.formatBrazil(item.valor)
 			};
 		});
@@ -87,6 +92,7 @@ export default function List({ registers, filtro }) {
 						<th>Matricula</th>
 						<th>Nome</th>
 						<th>Cpf</th>
+						{registersSorted[0].status && <th>Status</th>}
 						<th>Valor R$</th>
 					</tr>
 				</thead>
@@ -100,8 +106,9 @@ export default function List({ registers, filtro }) {
 								<td>{item.matricula}</td>
 								<td>{format.capitalizeFullName(item.nome)}</td>
 								<td>{format.formatCpfToView(item.cpf)}</td>
+								{item.status && <td>{format.capitalize(item.status)}</td>}
 								<td className="text-right">
-								  {format.formatBrazil(item.valor)}
+									{format.formatBrazil(item.valor)}
 								</td>
 							</tr>
 						);

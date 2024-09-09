@@ -26,6 +26,8 @@ export const FILTRO_CONSULTA = gql`
 		$matricula: String
 		$exibirOrgao: Boolean!
 		$exibirRubrica: Boolean!
+		$exibirStatus: Boolean!
+		$status: String
 	) {
 		recebimentoFiltro(
 			filtro: {
@@ -34,6 +36,7 @@ export const FILTRO_CONSULTA = gql`
 				orgao: $orgao
 				rubrica: $rubrica
 				matricula: $matricula
+				status: $status
 			}
 		) {
 			rubrica @include(if: $exibirRubrica)
@@ -44,6 +47,7 @@ export const FILTRO_CONSULTA = gql`
 			nome
 			cpf
 			valor
+			status @include(if: $exibirStatus)
 		}
 	}
 `;
